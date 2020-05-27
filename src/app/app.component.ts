@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
+import { Book } from './components/book/book.component';
 import { Module } from '@ag-grid-community/core';
 @Component({
   selector: 'app-root',
