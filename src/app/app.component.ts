@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   public defaultColDef;
   public rowData;
   public rowSelection;
-  public selectedData :any[]=[];
+  public selectedData :Book[]=[];
 
   ngOnInit(){
       //console.log(this.rowData)
@@ -36,9 +36,9 @@ export class AppComponent implements OnInit{
         filter: 'agNumberColumnFilter',
         maxWidth: 100,
       },
-      { field: 'Language' },
+     // { field: 'Author' },
       {
-        field: 'publicationYear',
+        field: 'authorName',
         maxWidth: 100,
       },
     //   {
@@ -67,19 +67,23 @@ export class AppComponent implements OnInit{
     //       browserDatePicker: true,
     //     },
     //   },
-      { field: 'categoryType' },
+      { field: 'publisherName' },
       {
-        field: 'noOfCopiesActual',
+        field: 'totalPage',
         filter: 'agNumberColumnFilter',
       },
       {
-        field: 'noOfCopiesCurrent',
+        field: 'bookShelfNumber',
         filter: 'agNumberColumnFilter',
       },
      
       {
-        field: 'author',
+        field: 'publisherAddress',
       },
+      {
+        field:'price',
+        filter: 'agNumberColumnFilter'
+      }
     ];
     this.defaultColDef = {
       flex: 1,

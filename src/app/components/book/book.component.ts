@@ -1,14 +1,14 @@
 export interface Book  {
-    book_id: number;
-    book_title: string;
-    author_name: string;
+    bookId: number;
+    bookTitle: string;
+    authorName: string;
     isbn: number;
-    total_page: number;
-    publisher_id: number;
-    publisher_name: string;
-    publish_date: string;
-    publisher_address: string;
-    book_shelf_number: number;
+    totalPage: number;
+    publisherId: number;
+    publisherName: string;
+    publishDate: string;
+    publisherAddress: string;
+    bookShelfNumber: number;
     price: number;
 
 }
