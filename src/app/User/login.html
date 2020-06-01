@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
-            <a href="" class="btn btn-link">Register</a>
+            <button class="btn btn-primary"(click)="gotoRegister()" style="margin-left:19px;">Register</button>
         </div>
     </form>
 </div>
