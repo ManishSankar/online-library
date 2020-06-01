@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { AgGridModule } from '@ag-grid-community/angular';
 import { login } from './User/login.component';
 import { ReactiveFormsModule} from '@angular/forms'
-import{register} from './User/register.component'
+import{register} from './User/register.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,login,register
+    AppComponent,login,register, AdminComponent
   ],
   imports: [
     BrowserModule,
