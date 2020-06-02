@@ -9,6 +9,7 @@ import { login } from './User/login.component';
 import { ReactiveFormsModule} from '@angular/forms'
 import{register} from './User/register.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AdminComponent } from './components/admin/admin.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
