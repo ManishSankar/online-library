@@ -5,15 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgGridModule } from '@ag-grid-community/angular';
-import { login } from './User/login.component';
+import {LoginComponent } from './components/user/login.component';
 import { ReactiveFormsModule} from '@angular/forms'
-import{register} from './User/register.component';
+import{RegisterComponent} from './components/user/register.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {LoginSuccessComponent} from './components/user/login-success/login-success.component'
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,login,register, AdminComponent
+    AppComponent,LoginComponent,RegisterComponent, AdminComponent, LoginSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,9 @@ import { AdminComponent } from './components/admin/admin.component';
     ReactiveFormsModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

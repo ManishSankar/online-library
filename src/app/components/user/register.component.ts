@@ -5,7 +5,7 @@ import {Validators} from '@angular/forms'
     selector:'register-component',
     templateUrl:'./register.html'
 })
-export class register
+export class RegisterComponent
 {
     registerForm=new FormGroup({
         firstname:new FormControl('',Validators.required),
