@@ -5,3 +5,5 @@
 .ag-theme-alpine {
     @include ag-theme-alpine();
 }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

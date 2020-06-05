@@ -10,7 +10,7 @@ import { ReactiveFormsModule} from '@angular/forms'
 import{RegisterComponent} from './components/user/register.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {LoginSuccessComponent} from './components/user/login-success/login-success.component'
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +23,8 @@ import {LoginSuccessComponent} from './components/user/login-success/login-succe
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgbModule
   ],
   providers: [
    

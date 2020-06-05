@@ -1,17 +1,19 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 import { Book } from '../book/book.component';
 import { Module } from '@ag-grid-community/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {AppModalContentComponent} from '../app.model.content.component';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit  {
   public gridApi;
   public gridColumnApi;
 
@@ -22,11 +24,8 @@ export class AdminComponent implements OnInit {
   public rowSelection;
   public selectedData :Book[]=[];
 
-  ngOnInit(){
-      //console.log(this.rowData)
-  }
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient,private modalService: NgbModal) {
     this.columnDefs = [
       { field: 'bookTitle',
       headerCheckboxSelection: true,
@@ -209,6 +208,25 @@ export class AdminComponent implements OnInit {
   //     ]
   
    }
+
+   //..................model component code start......
+
+   
+  ngOnInit(){
+    //console.log(this.rowData)
+}
+
+// ngAfterViewInit() {
+
+//   setTimeout(() => {
+//     this.open();
+//   });
+// }
+
+open() {
+  const modalRef = this.modalService.open(AppModalContentComponent);
+}
+   //..................model component code end.........
 
 
 
