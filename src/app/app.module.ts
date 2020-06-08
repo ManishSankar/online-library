@@ -9,14 +9,15 @@ import {LoginComponent } from './components/user/login.component';
 import { ReactiveFormsModule} from '@angular/forms'
 import{RegisterComponent} from './components/user/register.component';
 import { AdminComponent } from './components/admin/admin.component';
-import {LoginSuccessComponent} from './components/user/login-success/login-success.component'
+import {LoginSuccessComponent} from './components/user/login-success/login-success.component';
+import {AppModalContentComponent} from './components/model/app.model.content.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,LoginComponent,RegisterComponent, AdminComponent, LoginSuccessComponent
-  ],
+    ,AppModalContentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,24 +1,34 @@
 import { Component } from '@angular/core';
+import {FormControl,FormGroup} from '@angular/forms'
+import {Validators} from '@angular/forms'
+import { Router } from '@angular/router';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Book} from '../book/book.component';
 
 @Component({
   selector: 'app-modal-content-component',
-  template: `
-    <div class="modal-header">
-      <h4 class="modal-title">Hi there!</h4>
-      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>Add Book Template!</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-    </div>
-  `
+  templateUrl:'./app.model.content.component.html'
 })
 
 export class AppModalContentComponent {
-  constructor(public activeModal: NgbActiveModal) {}
+  booksControl=new FormGroup({
+    bookTitle:new FormControl('',Validators.required),
+    authorName:new FormControl('',Validators.required),
+    isbn:new FormControl('',Validators.required),
+    totalPage:new FormControl('',Validators.required),
+    publisherId:new FormControl('',Validators.required),
+    publisherName:new FormControl('',Validators.required),
+    publishDate:new FormControl('',Validators.required),
+    publisherAddress:new FormControl('',Validators.required),
+    bookShelfNumber:new FormControl('',Validators.required),
+    price:new FormControl('',Validators.required)
+  });
+
+  constructor(public activeModal: NgbActiveModal) {};
+  get f() { return this.booksControl.controls; }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.booksControl.value);
+  }
 }
