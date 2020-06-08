@@ -6,7 +6,7 @@ import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 import { Book } from '../book/book.component';
 import { Module } from '@ag-grid-community/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {AppModalContentComponent} from '../app.model.content.component';
+import {AppModalContentComponent} from '../model/app.model.content.component';
 
 @Component({
   selector: 'app-admin',
