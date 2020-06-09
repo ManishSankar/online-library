@@ -53,10 +53,13 @@
     </div>
     <div class="form-group">
         <label for="publishDate">Publisher Date:</label>
-        <input type="text" formControlName="publishDate" class="form-control" [ngClass]="{ 'is-invalid': f.publishDate.touched && f.publishDate.errors}"/>
+        <!--<input type="text" ngbDatepicker [(ngModel)]="date"/> -->
+        <!-- <ngb-datepicker (dateSelect)="onDateSelect($event)"></ngb-datepicker> -->
+        <input class="form-control" ngbDatepicker (click)="datePicker.toggle()" #datePicker="ngbDatepicker" formControlName="publishDate" placeholder="yyyy-mm-dd">
+         <!-- <input  ngbDatepicker #d="ngbDatepicker" (dateSelect)="onDateSelect($event)" formControlName="publishDate" class="form-control" [ngClass]="{ 'is-invalid': f.publishDate.touched && f.publishDate.errors}"/>
         <div *ngIf="f.publishDate.touched && f.publishDate.errors" class="invalid-feedback">
             <div *ngIf="f.publishDate.errors.required">Publisher Date is required</div>
-        </div>
+        </div> -->
     </div>
     <div class="form-group">
         <label for="publisherAddress">Publisher Address:</label>

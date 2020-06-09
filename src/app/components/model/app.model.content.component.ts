@@ -4,6 +4,7 @@ import {Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Book} from '../book/book.component';
+import {ConfigService} from '../../services/config.service';
 
 @Component({
   selector: 'app-modal-content-component',
@@ -24,11 +25,16 @@ export class AppModalContentComponent {
     price:new FormControl('',Validators.required)
   });
 
-  constructor(public activeModal: NgbActiveModal) {};
+  constructor(public activeModal: NgbActiveModal,private configService :ConfigService){};
   get f() { return this.booksControl.controls; }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.booksControl.value);
+    this.configService.saveBooks(this.booksControl.value);
+  }
+  onDateSelect(event){
+    console.log(event);
+   // console.log(this.ngbDateParserFormatter.format(event));
   }
 }

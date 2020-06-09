@@ -102,7 +102,7 @@ export class AdminComponent implements OnInit  {
     console.log(this.selectedData);
     this.http
     .post(
-      'http://localhost:8080/api/saveBooks',this.selectedData
+      'http://localhost:8080/api/issueBooks',this.selectedData
     )
     .subscribe(data => {
         console.log(data);

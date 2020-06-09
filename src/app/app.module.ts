@@ -12,6 +12,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import {LoginSuccessComponent} from './components/user/login-success/login-success.component';
 import {AppModalContentComponent} from './components/model/app.model.content.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ConfigService} from './services/config.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-   
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })
