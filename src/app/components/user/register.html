@@ -2,18 +2,18 @@
     <h2 style="text-align: center;">Register</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="firstname">FirstName:</label>
-            <input type="text" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors}"/>
-            <div *ngIf="f.firstname.touched && f.firstname.errors" class="invalid-feedback">
-                <div *ngIf="f.firstname.errors.required">first Name is required</div>
+            <label for="firstName">FirstName:</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors}"/>
+            <div *ngIf="f.firstName.touched && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">first Name is required</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="lastname">LastName:</label>
-            <input type="text" formControlName="lastname" class="form-control" [ngClass]="{ 'is-invalid': f.lastname.touched && f.lastname.errors}"/>
-            <div *ngIf="f.lastname.touched && f.lastname.errors" class="invalid-feedback">
-                <div *ngIf="f.lastname.errors.required"> last Name is required</div>
+            <label for="lastName">LastName:</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors}"/>
+            <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required"> last Name is required</div>
             </div>
         </div>
         <div class="form-group">
@@ -24,10 +24,10 @@
             </div>
         </div>
             <div class="form-group">
-                <label for="username">UserName:</label>
-                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': f.username.touched && f.username.errors}"/>
-                <div *ngIf="f.username.touched && f.username.errors" class="invalid-feedback">
-                    <div *ngIf="f.username.errors.required">User Name is required</div>
+                <label for="userName">UserName:</label>
+                <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': f.userName.touched && f.userName.errors}"/>
+                <div *ngIf="f.userName.touched && f.userName.errors" class="invalid-feedback">
+                    <div *ngIf="f.userName.errors.required">User Name is required</div>
                 </div>
             </div>
             <div class="form-group">

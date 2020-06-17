@@ -5,6 +5,7 @@ import {LoginComponent} from './components/user/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginSuccessComponent } from './components/user/login-success/login-success.component';
 import {AppModalContentComponent} from './components/model/app.model.content.component';
+import { RegisterSuccessComponent } from './components/user/register-success/register-success.component';
 
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'reg',component:RegisterComponent},
   {path:'admin',component:AdminComponent},
   {path:'success',component:LoginSuccessComponent},
+  {path:'registerSucc',component:RegisterSuccessComponent},
   {path:'model-content',component:AppModalContentComponent}
 ];
 
