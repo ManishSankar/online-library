@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router'
 import {tokenNotExpired} from 'angular2-jwt';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +21,17 @@ export class AuthenticationService {
   }
   authenticate(users) {
     console.log(users);
-  return this.http.post("http://localhost:8080/authenticate",users,{responseType:'text' as 'json'})
+  return this.http.post("http://localhost:8080/api/authenticate",users,{responseType:'text' as 'json'}).pipe(
+    map(
+      token => {
+       // sessionStorage.setItem('username',userName);
+      //  let tokenStr= 'Bearer '+userData;
+      //  console.log(tokenStr);
+       localStorage.setItem('token', token+'');
+       return token;
+      }
+    )
+   );
     
   }
   loginSuccess()

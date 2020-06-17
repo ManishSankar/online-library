@@ -10,8 +10,8 @@ export class ConfigService {
     .post(
       'http://localhost:8080/api/saveBook',data
     )
-    .subscribe(data => {
-        console.log(data);
+    .subscribe(res => {
+        console.log(res);
     });
   }
 }
