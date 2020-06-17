@@ -31,6 +31,8 @@ export class AppModalContentComponent {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.booksControl.value);
+    let dataToFormat=new Date(this.booksControl.value.publishDate);
+    this.booksControl.value.publishDate=dataToFormat; 
     this.configService.saveBooks(this.booksControl.value);
   }
   onDateSelect(event){
