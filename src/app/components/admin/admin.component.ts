@@ -1,4 +1,4 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component,OnInit,OnDestroy  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
@@ -7,13 +7,16 @@ import { Book } from '../book/book.component';
 import { Module } from '@ag-grid-community/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {AppModalContentComponent} from '../model/app.model.content.component';
+import {Event,Router,NavigationEnd } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit  {
+export class AdminComponent implements OnInit, OnDestroy  {
+  public navigationSubscription;
   public gridApi;
   public gridColumnApi;
 
@@ -25,7 +28,15 @@ export class AdminComponent implements OnInit  {
   public selectedData :Book[]=[];
 
 
-  constructor(private http: HttpClient,private modalService: NgbModal) {
+  constructor( private http: HttpClient,private modalService: NgbModal,private router:Router) {
+    //this.routeEvent(this.router);
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites();
+      }
+    });
+
     this.columnDefs = [
       { field: 'bookTitle',
       headerCheckboxSelection: true,
@@ -209,20 +220,33 @@ export class AdminComponent implements OnInit  {
   
    }
 
-   //..................model component code start......
+  
 
    
   ngOnInit(){
-    //console.log(this.rowData)
-}
+    console.log(this.rowData)
+    
+  }
 
-// ngAfterViewInit() {
+  initialiseInvites() {
+    this.http
+      .get(
+        'http://localhost:8080/api/getBooks'
+      )
+      .subscribe(data => {
+        console.log(data);
+        this.rowData = data;
+      });
+  }
+ 
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
+  }
 
-//   setTimeout(() => {
-//     this.open();
-//   });
-// }
 
+ //..................model component code start......
 open() {
   const modalRef = this.modalService.open(AppModalContentComponent);
 }

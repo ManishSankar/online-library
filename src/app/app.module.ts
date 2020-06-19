@@ -13,6 +13,7 @@ import {LoginSuccessComponent} from './components/user/login-success/login-succe
 import {AppModalContentComponent} from './components/model/app.model.content.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ConfigService} from './services/config.service';
+import {AuthGuardService} from './services/auth.guard.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
@@ -32,7 +33,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
-    ConfigService
+    ConfigService,AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

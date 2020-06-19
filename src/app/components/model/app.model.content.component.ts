@@ -6,6 +6,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Book} from '../book/book.component';
 import {ConfigService} from '../../services/config.service';
 
+
 @Component({
   selector: 'app-modal-content-component',
   templateUrl:'./app.model.content.component.html'
@@ -25,7 +26,8 @@ export class AppModalContentComponent {
     price:new FormControl('',Validators.required)
   });
 
-  constructor(public activeModal: NgbActiveModal,private configService :ConfigService){};
+  constructor(public activeModal: NgbActiveModal,private configService :ConfigService
+  ,private route:Router){};
   get f() { return this.booksControl.controls; }
 
   onSubmit() {
@@ -33,7 +35,12 @@ export class AppModalContentComponent {
     console.log(this.booksControl.value);
     let dataToFormat=new Date(this.booksControl.value.publishDate);
     this.booksControl.value.publishDate=dataToFormat; 
-    this.configService.saveBooks(this.booksControl.value);
+    this.configService.saveBooks(this.booksControl.value).subscribe(res => {
+      console.log(res);
+      this.route.navigate(['/admin']);
+      this.activeModal.close();
+    });
+      
   }
   onDateSelect(event){
     console.log(event);
